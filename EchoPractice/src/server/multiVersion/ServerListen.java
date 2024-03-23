@@ -1,6 +1,4 @@
-package multiVersion;
-
-import multiEchoServer.ServerEcho;
+package server.multiVersion;
 
 import java.io.IOException;
 import java.net.ServerSocket;

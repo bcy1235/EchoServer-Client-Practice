@@ -1,4 +1,4 @@
-package multiEchoServer;
+package server.multiVersion;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-
 public class ServerEcho implements Runnable{
-
     private Socket connectedSocekt;
     private int idThread;
 
