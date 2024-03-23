@@ -27,7 +27,7 @@ public class ServerEcho implements Runnable{
                 pw.println(tmpInput);
             }
         } catch (IOException ioException) {
-            System.out.println("IOException occurred : " + ioException + "  (ServerEcho - Run Method");
+            System.out.println("IOException occurred : " + ioException + "  (EchoService - Run Method");
         }
     }
 }
