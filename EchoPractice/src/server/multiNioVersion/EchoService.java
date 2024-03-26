@@ -20,12 +20,12 @@ public class EchoService implements Runnable{
             SocketChannel connectedChannel = (SocketChannel) selectionKey.channel();
             try {
                 int readByte = connectedChannel.read(buf);
-                buf.flip();
                 if (readByte == -1) {
                     connectedChannel.close();
                     selectionKey.cancel();
                     continue;
                 }
+                buf.flip();
 
                 int writeByte = 0;
                 while (writeByte < readByte) {

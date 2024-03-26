@@ -8,9 +8,9 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class EchoClient {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        Socket clientSocket = new Socket("127.0.0.1", 54321);
         try {
-            Socket clientSocket = new Socket("127.0.0.1", 54321);
             BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
             PrintWriter pw = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader socketInput = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -25,9 +25,11 @@ public class EchoClient {
             pw.close();
             clientSocket.close();
         } catch (UnknownHostException unknownHostException) {
-            System.out.println("Cannot find host with given ip : " + unknownHostException );;
+            System.out.println("Cannot find host with given ip : " + unknownHostException );
+            clientSocket.close();
         } catch (IOException ioException) {
             System.out.println("IOException occurred : " + ioException);
+            clientSocket.close();
         }
     }
 }
